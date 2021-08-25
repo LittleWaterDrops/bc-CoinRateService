@@ -19,10 +19,9 @@ export default Title = () => {
 };
 const styles = StyleSheet.create({
     title: {
-        height: 72 + 56,
+        height: 72,
         flexDirection: 'column',
         alignItems: 'flex-start',
-        paddingTop: 56,
         paddingLeft: 24,
         justifyContent: 'space-between',
     },

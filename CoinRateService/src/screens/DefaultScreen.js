@@ -4,8 +4,10 @@ import {
     StyleSheet,
     View
 } from 'react-native';
-import Header from '../components/Header';
-import Title from '../components/Title';
+import Content from '../sections/Content';
+import Footer from '../sections/Footer';
+import Header from '../sections/Header';
+import Title from '../sections/Title';
 
 const DefaultScreen = () => {
     const [data, setData] = useState([]);
@@ -23,22 +25,28 @@ const DefaultScreen = () => {
     //   console.log(JSON.stringify(data)),
     //   console.log(cmcInfo),
     <SafeAreaView>
-        <Foo/>
+        <View>
+            <Header/>
+            <View style={styles.spaceHeaderTitle}/>
+            <Title/>
+            <View style={styles.spaceTitleContent}/>
+            <Content/>
+            <View style={styles.spaceContentFooter}/>
+            <Footer/>
+        </View>  
     </SafeAreaView>
     );
 };
 
-const Foo = () => {
-    return (
-        <View>
-            <Header/>
-            <Title/>
-        </View>     
-    );
-}
 const styles = StyleSheet.create({
-    viewContainer: {
-        padding: 23,
+    spaceHeaderTitle: {
+        height: 56,
+    },
+    spaceTitleContent: {
+        height: 40,
+    },
+    spaceContentFooter: {
+        height: 40,
     },
     headerLogoFont: {
         fontFamily: 'Inter-Bold',
