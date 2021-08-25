@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import {
-    Image,
     SafeAreaView,
     StyleSheet,
-
-    Text, View
+    View
 } from 'react-native';
+import Header from '../components/Header';
+import Title from '../components/Title';
 
 const DefaultScreen = () => {
     const [data, setData] = useState([]);
@@ -19,29 +19,30 @@ const DefaultScreen = () => {
     getMovies();
   
   }, []);
-  useEffect(() => {
-    getMovies();
-  
-  }, []);
     return (
     //   console.log(JSON.stringify(data)),
     //   console.log(cmcInfo),
     <SafeAreaView>
-      <View style={styles.viewContainer}>
-          <Image 
-            style={styles.logo}
-            source={require('CoinRateService/src/assets/images/img_symbol.png')}/>
-            <Text style={{fontSize : 100}}>haru</Text>
-            <Text style={styles.koreanRegularFont}>haru</Text>
-            <Text style={styles.englishRegularFont}>haru</Text>
-      </View>
+        <Foo/>
     </SafeAreaView>
     );
-  };
-  
-  const styles = StyleSheet.create({
+};
+
+const Foo = () => {
+    return (
+        <View>
+            <Header/>
+            <Title/>
+        </View>     
+    );
+}
+const styles = StyleSheet.create({
     viewContainer: {
-      padding: 23,
+        padding: 23,
+    },
+    headerLogoFont: {
+        fontFamily: 'Inter-Bold',
+        fontSize: 30,
     },
     koreanRegularFont: {
         fontFamily: 'SpoqaHanSansNeo-Regular',
@@ -52,25 +53,21 @@ const DefaultScreen = () => {
         fontSize : 100,
     },
     sectionContainer: {
-      marginTop: 32,
-      paddingHorizontal: 24,
+        marginTop: 32,
+        paddingHorizontal: 24,
     },
     sectionTitle: {
-      fontSize: 24,
-      fontWeight: '600',
+        fontSize: 24,
+        fontWeight: '600',
     },
     sectionDescription: {
-      marginTop: 8,
-      fontSize: 18,
-      fontWeight: '400',
+        marginTop: 8,
+        fontSize: 18,
+        fontWeight: '400',
     },
     highlight: {
-      fontWeight: '700',
+        fontWeight: '700',
     },
-    logo: {
-        width: 22.8,
-        height: 34,
-    }
-  });
-  
-  export default DefaultScreen;
+});
+
+export default DefaultScreen;
