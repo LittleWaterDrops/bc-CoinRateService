@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import {
-    Image, StyleSheet,
+    Image, Pressable, StyleSheet,
     Text,
-    TouchableHighlight,
-
-
 
     View
 } from 'react-native';
@@ -18,22 +15,20 @@ export default CoinCard = () => {
     onPress = () => {
         buttonPressed ? setButtonPressed(false) : setButtonPressed(true);
         setButtonHovered(false);
-        console.log('pressed');
     };
     onPressIn = () => {
         setButtonHovered(true);
-        console.log('hovered');
     };
     onPressOut = () => {
         setButtonHovered(false);
-        console.log('hovered not!');
     };
 
     return (
-        <TouchableHighlight
+        <Pressable
         onPress={onPress}
         onPressIn={onPressIn}
         onPressOut={onPressOut}
+        style={{borderRadius: 4}}
         >
             <View style={buttonHovered ? styles.hoverButton : buttonPressed ? styles.checkedButton : styles.defaultButton}>
             
@@ -51,7 +46,7 @@ export default CoinCard = () => {
                 </View>
             </View>
 
-        </TouchableHighlight>
+        </Pressable>
 
     );
 };
@@ -86,19 +81,6 @@ const CheckBox = ({buttonHovered, buttonPressed}) => {
         </View>
     );
 }
-
-{/* <TouchableHighlight
-onPress={onPress}
-onPressIn={onPressIn}
->
-    <View style={buttonHovered? styles.abutton : buttonPressed? styles.bbutton : styles.cbutton}>
-        <Text>Text</Text>
-    </View>
-</TouchableHighlight> */}
-
-// 32
-
-// 229 80
 const styles = StyleSheet.create({
     cardBox: {
         height: 80,

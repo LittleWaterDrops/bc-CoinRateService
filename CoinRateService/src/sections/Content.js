@@ -11,24 +11,35 @@ import {
 } from 'react-native';
 import { Rows, Table } from 'react-native-table-component';
 import CoinCard from '../components/CoinCard';
+import MoreButton from '../components/MoreButton';
 
   
 export default Content = () => {
     // const [a,b] = useState();
     const [buttonPressed, setButtonPressed] = useState(false);
     const [buttonHovered, setButtonHovered] = useState(false);
-    
+
+
+    const tableData = [];
     onPress = () => {
-        setButtonPressed(true);
-        setButtonHovered(false);
+        setmorePressed(true);
+        setmoreHovered(false);
         console.log('pressed');
     };
     onPressIn = () => {
-        setButtonHovered(true);
+        setmoreHovered(true);
         console.log('hovered');
     };
 
-    const tableData = [[<CoinCard/>,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9]];
+    for(let i = 0; i < 5; i++){
+        const rowData = [];
+        for(let j = 0; j < 3; j++){
+            rowData.push(<CoinCard/>);
+        }
+        tableData.push(rowData);
+    }
+
+    // const tableData = [[<CoinCard/>,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9]];
 
 
     return (
@@ -41,25 +52,28 @@ export default Content = () => {
                     <Text>Text</Text>
                 </View>
             </TouchableHighlight> */}
-            <ScrollView>
-          <View>
-              <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-                    <Rows data={tableData}/>
-              </Table>
-          </View>
-        </ScrollView>
-
+            <ScrollView style={styles.scrollView}>
+                <View>
+                    <Table borderStyle={{borderWidth: 16, borderColor: '#FFFFFF'}}>
+                            <Rows data={tableData}/>
+                    </Table>
+                </View>
+            </ScrollView>
+            <MoreButton/>
         </View>
     );
 
 };
 const styles = StyleSheet.create({
     content: {
-        height: 536,
-        flexDirection: 'row',
+        height: 560,
+        flexDirection: 'column',
         alignItems: 'center',
-        paddingHorizontal: 24,
-        backgroundColor: '#7DDBCF'
+        justifyContent: 'space-between',
+        backgroundColor: '#FFFFFF'
+    },
+    scrollView: {
+        width: 760,
     },
     abutton: {
         alignItems: "center",

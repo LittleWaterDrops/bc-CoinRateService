@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         height: 56,
     },
     spaceTitleContent: {
-        height: 40,
+        height: 16,
     },
     spaceContentFooter: {
         height: 40,
