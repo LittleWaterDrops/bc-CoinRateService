@@ -14,6 +14,13 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A96712A55EA64D92D89C6605 /* libPods-CoinRateService-CoinRateServiceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5036173FF5020B391095CE39 /* libPods-CoinRateService-CoinRateServiceTests.a */; };
+		DBE3D6B16B504FF284DE544F /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B2F89005E85048CBB82A5D2B /* SpoqaHanSansNeo-Bold.otf */; };
+		219C65C0582342559B33236E /* SpoqaHanSansNeo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32B3FC56A5FC4455B5E552DD /* SpoqaHanSansNeo-Light.otf */; };
+		FFE999A21603466F89C72B2C /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDF78AD7C4E48239DA36AAD /* SpoqaHanSansNeo-Medium.otf */; };
+		0A302D5F3EA044518C1C0983 /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1CC9E8EB043497DA275C007 /* SpoqaHanSansNeo-Regular.otf */; };
+		E73478C1CBA44C9B9F328EFB /* SpoqaHanSansNeo-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6E61BBED418493F99815BB6 /* SpoqaHanSansNeo-Thin.otf */; };
+		A0786E1258EB4DF7BDC1E7F9 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 469654703AEB471B88D3B92C /* Inter-Bold.otf */; };
+		6FB0932CBAD441D18617D15A /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EFE877E6D8D4DD788051D4A /* Inter-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,13 @@
 		A7CE8ADA483F6B9373EC9BCB /* Pods-CoinRateService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinRateService.release.xcconfig"; path = "Target Support Files/Pods-CoinRateService/Pods-CoinRateService.release.xcconfig"; sourceTree = "<group>"; };
 		CAA07723609520E4C5262F39 /* Pods-CoinRateService-CoinRateServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinRateService-CoinRateServiceTests.debug.xcconfig"; path = "Target Support Files/Pods-CoinRateService-CoinRateServiceTests/Pods-CoinRateService-CoinRateServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		B2F89005E85048CBB82A5D2B /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; name = "SpoqaHanSansNeo-Bold.otf"; path = "../src/assets/fonts/spoqa/SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		32B3FC56A5FC4455B5E552DD /* SpoqaHanSansNeo-Light.otf */ = {isa = PBXFileReference; name = "SpoqaHanSansNeo-Light.otf"; path = "../src/assets/fonts/spoqa/SpoqaHanSansNeo-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6CDF78AD7C4E48239DA36AAD /* SpoqaHanSansNeo-Medium.otf */ = {isa = PBXFileReference; name = "SpoqaHanSansNeo-Medium.otf"; path = "../src/assets/fonts/spoqa/SpoqaHanSansNeo-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A1CC9E8EB043497DA275C007 /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; name = "SpoqaHanSansNeo-Regular.otf"; path = "../src/assets/fonts/spoqa/SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A6E61BBED418493F99815BB6 /* SpoqaHanSansNeo-Thin.otf */ = {isa = PBXFileReference; name = "SpoqaHanSansNeo-Thin.otf"; path = "../src/assets/fonts/spoqa/SpoqaHanSansNeo-Thin.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		469654703AEB471B88D3B92C /* Inter-Bold.otf */ = {isa = PBXFileReference; name = "Inter-Bold.otf"; path = "../src/assets/fonts/inter/Inter-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3EFE877E6D8D4DD788051D4A /* Inter-Regular.otf */ = {isa = PBXFileReference; name = "Inter-Regular.otf"; path = "../src/assets/fonts/inter/Inter-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +147,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				7CF44A508431E588FF601D30 /* Pods */,
+				AC8A6A6CE04A43348F7D6A31 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +162,21 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		AC8A6A6CE04A43348F7D6A31 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				B2F89005E85048CBB82A5D2B /* SpoqaHanSansNeo-Bold.otf */,
+				32B3FC56A5FC4455B5E552DD /* SpoqaHanSansNeo-Light.otf */,
+				6CDF78AD7C4E48239DA36AAD /* SpoqaHanSansNeo-Medium.otf */,
+				A1CC9E8EB043497DA275C007 /* SpoqaHanSansNeo-Regular.otf */,
+				A6E61BBED418493F99815BB6 /* SpoqaHanSansNeo-Thin.otf */,
+				469654703AEB471B88D3B92C /* Inter-Bold.otf */,
+				3EFE877E6D8D4DD788051D4A /* Inter-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +274,13 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				DBE3D6B16B504FF284DE544F /* SpoqaHanSansNeo-Bold.otf in Resources */,
+				219C65C0582342559B33236E /* SpoqaHanSansNeo-Light.otf in Resources */,
+				FFE999A21603466F89C72B2C /* SpoqaHanSansNeo-Medium.otf in Resources */,
+				0A302D5F3EA044518C1C0983 /* SpoqaHanSansNeo-Regular.otf in Resources */,
+				E73478C1CBA44C9B9F328EFB /* SpoqaHanSansNeo-Thin.otf in Resources */,
+				A0786E1258EB4DF7BDC1E7F9 /* Inter-Bold.otf in Resources */,
+				6FB0932CBAD441D18617D15A /* Inter-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
