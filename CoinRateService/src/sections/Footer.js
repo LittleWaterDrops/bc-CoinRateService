@@ -7,19 +7,27 @@ import {
 import CoinLabel from '../components/CoinLabel';
   
 export default Footer = ({coinSelected, selectedCoin, parentCallback}) => {
+    
+    // const [removeCoin, setRemoveCoin] = useState([]);
 
-    removeCoinLabel = (removeSymbol) =>{
-        parentCallback(removeSymbol);
-    }
+    // removeCoinLabel = (coinIdx, removeSymbol) =>{
+    //     setRemoveCoin([coinIdx,removeSymbol]);
+    // }
+
+    // useEffect(()=>{
+    //     if(!isEmptyObject(removeCoin)){
+    //         parentCallback(removeCoin[0], removeCoin[1]);
+    //     }
+    // },[removeCoin])
+        removeCoinLabel = (coinIdx, removeSymbol) =>{
+        parentCallback(coinIdx, removeSymbol);
+}
 
     if(coinSelected == true){
         let initialArr = selectedCoin;
-        if(typeof(initialArr) == 'string'){
-            initialArr = [initialArr];
-        }
-        console.log('asdfd');
-        console.log(initialArr);
-        console.log(typeof(initialArr));
+        // if(typeof(initialArr) == 'string'){
+        //     initialArr = [initialArr];
+        // }
 
         return (
             <View style={styles.footer}>
@@ -30,8 +38,9 @@ export default Footer = ({coinSelected, selectedCoin, parentCallback}) => {
 
                             {
                                 initialArr.map((item)=> {
+
                                     return (
-                                        <CoinLabel key={item} symbol={item} parentCallback={this.removeCoinLabel}/>
+                                        <CoinLabel key={item[0]} coinIdx={item[0]} symbol={item[1]} parentCallback={this.removeCoinLabel}/>
                                     );
                                 })
                             }

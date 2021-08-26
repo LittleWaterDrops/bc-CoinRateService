@@ -13,13 +13,11 @@ import Title from '../sections/Title';
 const DefaultScreen = () => {
     const [coinSelected, setCoinSelected] = useState(false);
     const [selectedCoin, setSelectedCoin] = useState([]);
-    const [symbolToRemove, setSymbolToRemove] = useState('');
+    const [symbolToRemove, setSymbolToRemove] = useState([]);
 
 
     selectCoinCallback = (selectedCoin) => {
-
         if(isEmptyObject(selectedCoin)){
-
             setCoinSelected(false);
             setSelectedCoin([]);
         }
@@ -29,9 +27,14 @@ const DefaultScreen = () => {
         }
     }
 
-    removeCoinLabelCallback = (removeSymbol) =>{
-        setSymbolToRemove(removeSymbol);
+    removeCoinLabelCallback = (coinIdx, removeSymbol) =>{
+        setSymbolToRemove([coinIdx, removeSymbol]);
+
+            //         setSelectedCoin(selectedCoin => selectedCoin.filter(function(selectedCoin) { 
+            //     return JSON.stringify(selectedCoin) != JSON.stringify([coinIdx, removeSymbol]);
+            // }));
     }
+
     return (
     <SafeAreaView>
         <View>

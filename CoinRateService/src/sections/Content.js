@@ -21,22 +21,18 @@ export default Content = ({parentCallback, removableSymbol}) => {
     const [pageIdx, setPageIdx] = useState();
     const [tableData, setTableData] = useState([]);
     const [maxPage, setMaxPage] = useState(0);
-
-    console.log('remove ? ' + removableSymbol);
-
-    console.log(removableSymbol != '');
     
-    if(removableSymbol != ''){
-        let copyedData = [...tableData];
-
-        copyedData[0][1] = <CoinCard 
-        coinName={copyedData[0][1].props.coinName} 
-        coinSymbol={copyedData[0][1].props.coinSymbol}
-        cardSelected={true}
-        parentCallback={this.selectCoinCallback}
-        />;
+    useEffect(()=>{
+    if(!isEmptyObject(removableSymbol)){
+        selectCoinCallback(removableSymbol[1],removableSymbol[0],false);           
     }
+},[removableSymbol])
 
+
+console.log('====================================');
+console.log(selectedCoin);
+console.log(removableSymbol);
+console.log('====================================');
 
     pageIdxCallback = () => {
         if(pageIdx + 1 <= maxPage){
@@ -63,23 +59,20 @@ export default Content = ({parentCallback, removableSymbol}) => {
         parentCallback={this.selectCoinCallback}
         />;
     }
-    
-    selectCoinCallback = async (selectedCoinSymbol, selectedCoinIdx, buttonPressed) => {
+    selectCoinCallback = (selectedCoinSymbol, selectedCoinIdx, buttonPressed) => {
         const columnNumber = Math.floor(selectedCoinIdx/3);
         const rowNumber = selectedCoinIdx%3;
-        console.log(rowNumber);
 
         if(buttonPressed == true){
             foo(columnNumber,rowNumber,selectedCoinIdx);
 
-            setSelectedCoin(selectedCoin => selectedCoin.concat(selectedCoinSymbol));
-            console.log(selectedCoin.concat(selectedCoinSymbol));
+            setSelectedCoin(selectedCoin => selectedCoin.concat([[selectedCoinIdx, selectedCoinSymbol]]));
         }
         else{
             koo(columnNumber,rowNumber,selectedCoinIdx);
             
-            setSelectedCoin(selectedCoin => selectedCoin.filter(function(coinSymbol) { 
-                return coinSymbol != selectedCoinSymbol;
+            setSelectedCoin(selectedCoin => selectedCoin.filter(function(selectedCoin) { 
+                return JSON.stringify(selectedCoin) != JSON.stringify([selectedCoinIdx, selectedCoinSymbol]);
             }));
         }
 
@@ -88,9 +81,7 @@ export default Content = ({parentCallback, removableSymbol}) => {
 
     useEffect(() => {
         let copyedArray = [...selectedCoin];
-        console.log('here i check 2 ');
-        console.log(copyedArray);
-
+        
         parentCallback(copyedArray);
     }, [selectedCoin]);
 
@@ -170,7 +161,6 @@ export default Content = ({parentCallback, removableSymbol}) => {
                     tableCell.push(rowData);
                 }  
             }
-            // console.log(tableCell[0][0].props.coinName);
             setTableData(tableData.concat(tableCell));
         }
     }, [pageIdx]);

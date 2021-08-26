@@ -8,14 +8,14 @@ import {
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
-export default CoinLabel = ({symbol, parentCallback}) => {
+export default CoinLabel = ({coinIdx, symbol, parentCallback}) => {
     const [labelPressed, setLabelPressed] = useState(false);
     const [labelHovered, setLabelHovered] = useState(false);
     
     onPress = () => {
         setLabelPressed(true);
         setLabelHovered(false);
-        parentCallback(symbol); 
+        parentCallback(coinIdx, symbol); 
     };
     onPressIn = () => {
         setLabelHovered(true);
