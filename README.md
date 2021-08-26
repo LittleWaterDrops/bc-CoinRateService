@@ -7,3 +7,4 @@ language is rn
 service is ---
 bundle name is --
 
+detail - >> selected label scrollview

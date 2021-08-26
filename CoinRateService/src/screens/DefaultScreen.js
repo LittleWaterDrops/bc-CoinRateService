@@ -52,13 +52,13 @@ const DefaultScreen = () => {
 
 const styles = StyleSheet.create({
     spaceHeaderTitle: {
-        height: 56,
+        height: 36,
     },
     spaceTitleContent: {
         height: 16,
     },
     spaceContentFooter: {
-        height: 40,
+        height: 30,
     },
     headerLogoFont: {
         fontFamily: 'Inter-Bold',

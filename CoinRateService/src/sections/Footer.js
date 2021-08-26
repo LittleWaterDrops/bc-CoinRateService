@@ -2,36 +2,22 @@ import React from 'react';
 import {
     ScrollView,
     StyleSheet,
+    Text,
     View
 } from 'react-native';
 import CoinLabel from '../components/CoinLabel';
   
 export default Footer = ({coinSelected, selectedCoin, parentCallback}) => {
-    
-    // const [removeCoin, setRemoveCoin] = useState([]);
-
-    // removeCoinLabel = (coinIdx, removeSymbol) =>{
-    //     setRemoveCoin([coinIdx,removeSymbol]);
-    // }
-
-    // useEffect(()=>{
-    //     if(!isEmptyObject(removeCoin)){
-    //         parentCallback(removeCoin[0], removeCoin[1]);
-    //     }
-    // },[removeCoin])
-        removeCoinLabel = (coinIdx, removeSymbol) =>{
-        parentCallback(coinIdx, removeSymbol);
+    removeCoinLabel = (coinIdx, removeSymbol) =>{
+    parentCallback(coinIdx, removeSymbol);
 }
 
     if(coinSelected == true){
         let initialArr = selectedCoin;
-        // if(typeof(initialArr) == 'string'){
-        //     initialArr = [initialArr];
-        // }
 
         return (
             <View style={styles.footer}>
-                <View style={styles.scorllViewBackGround}>
+                <View style={styles.scorllViewSection}>
                     <ScrollView style={styles.scrollView}>
 
                         <View style={styles.coinLabelBox}>
@@ -49,6 +35,19 @@ export default Footer = ({coinSelected, selectedCoin, parentCallback}) => {
                     </ScrollView>
                 </View>
 
+                <View style={styles.stopWatchSection}>
+
+                    <Text style={styles.stopWatchElapse}>
+                        00:00:00
+                    </Text>
+
+                    <View style={styles.stopWatchBox}>
+                        <Text style={styles.stopWatchBoxText}>
+                            Start
+                        </Text>
+                    </View>
+                </View>
+
             </View>
         );
     }
@@ -58,18 +57,43 @@ export default Footer = ({coinSelected, selectedCoin, parentCallback}) => {
 };
 const styles = StyleSheet.create({
     footer: {
-        height: 180,
+        height: 210,
         flexDirection: 'column',
-        backgroundColor: '#DDDDDD',
     },
     container: {
         height: 180,
         flexDirection: 'column',
-        backgroundColor: '#FFFFFF',
     },
-    scorllViewBackGround: {
+    scorllViewSection: {
         height: 120,
         backgroundColor: '#EEF0FD',
+    },
+    stopWatchSection: {
+        height: 90,
+        flexDirection: 'row',
+        alignItems:'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 25,
+    },
+    stopWatchElapse: {
+        fontFamily: 'Inter-Regular',
+        fontSize: 28,
+        color: '#171F46',
+    },
+    stopWatchBox: {
+        width: 106,
+        height: 56,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#5A41F5',
+        borderRadius: 4,
+        color:'#FFFFFF',
+    },
+    stopWatchBoxText: {
+        fontFamily: 'Inter-Regular',
+        fontSize: 18,
+        color: '#FFFFFF',
     },
     coinLabelBox: {
         height: 120,
