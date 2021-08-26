@@ -8,7 +8,7 @@ import {
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
-export default CoinCard = () => {
+export default CoinCard = ({coinName, coinSymbol}) => {
     const [buttonPressed, setButtonPressed] = useState(false);
     const [buttonHovered, setButtonHovered] = useState(false);
     
@@ -36,7 +36,7 @@ export default CoinCard = () => {
                     <View/>
                     <BTCLogo/>
 
-                    <TextBox name={'adfasdfsadfasdf'} symbol={'asdfff'}/>
+                    <TextBox name={coinName} symbol={coinSymbol}/>
 
                     <View>
                         <CheckBox buttonHovered={buttonHovered} buttonPressed={buttonPressed}/>

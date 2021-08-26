@@ -162,18 +162,25 @@ const typeMap = {
         { json: "num_market_pairs", js: "num_market_pairs", typ: 0 },
         { json: "date_added", js: "date_added", typ: Date },
         { json: "tags", js: "tags", typ: a("") },
-        { json: "max_supply", js: "max_supply", typ: 0 },
-        { json: "circulating_supply", js: "circulating_supply", typ: 0 },
-        { json: "total_supply", js: "total_supply", typ: 0 },
-        { json: "platform", js: "platform", typ: null },
+        { json: "max_supply", js: "max_supply", typ: u(0, null) },
+        { json: "circulating_supply", js: "circulating_supply", typ: 3.14 },
+        { json: "total_supply", js: "total_supply", typ: 3.14 },
+        { json: "platform", js: "platform", typ: u(r("Platform"), null) },
         { json: "cmc_rank", js: "cmc_rank", typ: 0 },
         { json: "last_updated", js: "last_updated", typ: Date },
         { json: "quote", js: "quote", typ: r("Quote") },
     ], false),
-    "Quote": o([
-        { json: "USD", js: "USD", typ: r("Usd") },
+    "Platform": o([
+        { json: "id", js: "id", typ: 0 },
+        { json: "name", js: "name", typ: r("Name") },
+        { json: "symbol", js: "symbol", typ: r("Symbol") },
+        { json: "slug", js: "slug", typ: r("Slug") },
+        { json: "token_address", js: "token_address", typ: "" },
     ], false),
-    "Usd": o([
+    "Quote": o([
+        { json: "KRW", js: "KRW", typ: r("Krw") },
+    ], false),
+    "Krw": o([
         { json: "price", js: "price", typ: 3.14 },
         { json: "volume_24h", js: "volume_24h", typ: 3.14 },
         { json: "percent_change_1h", js: "percent_change_1h", typ: 3.14 },
@@ -196,6 +203,25 @@ const typeMap = {
         { json: "notice", js: "notice", typ: null },
         { json: "total_count", js: "total_count", typ: 0 },
     ], false),
+    "Name": [
+        "Binance Chain",
+        "Binance Smart Chain",
+        "Ethereum",
+        "Heco",
+        "Tron10",
+    ],
+    "Slug": [
+        "binance-coin",
+        "ethereum",
+        "huobi-token",
+        "tron",
+    ],
+    "Symbol": [
+        "BNB",
+        "ETH",
+        "HT",
+        "TRX",
+    ],
 };
 
 module.exports = {

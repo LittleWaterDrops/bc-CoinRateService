@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     ScrollView, StyleSheet,
 
@@ -12,46 +12,41 @@ import {
 import { Rows, Table } from 'react-native-table-component';
 import CoinCard from '../components/CoinCard';
 import MoreButton from '../components/MoreButton';
+import SampleData from '../models/SampleMode.json';
 
-  
+
 export default Content = () => {
-    // const [a,b] = useState();
-    const [buttonPressed, setButtonPressed] = useState(false);
-    const [buttonHovered, setButtonHovered] = useState(false);
-
+    const [data, setData] = useState([]);
 
     const tableData = [];
-    onPress = () => {
-        setmorePressed(true);
-        setmoreHovered(false);
-        console.log('pressed');
-    };
-    onPressIn = () => {
-        setmoreHovered(true);
-        console.log('hovered');
-    };
 
+    useEffect(async () => {
+        // this is real data
+        // const cmcData = await CmcService();
+
+        // this is sample data
+        const cmcData = await SampleData;
+
+        setData(cmcData);
+
+    }, []);
+
+
+if(data.length != 0){
+    console.log(data.data.length);
     for(let i = 0; i < 5; i++){
         const rowData = [];
         for(let j = 0; j < 3; j++){
-            rowData.push(<CoinCard/>);
+            let idx = j + i * 3
+            rowData.push(<CoinCard coinName={data.data[idx].name} coinSymbol={data.data[idx].symbol}
+            />);
         }
         tableData.push(rowData);
     }
-
-    // const tableData = [[<CoinCard/>,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9],[1,2,3],[4,5,6],[7,8,9]];
-
+}
 
     return (
         <View style={styles.content}>
-            {/* <TouchableHighlight
-            onPress={onPress}
-            onPressIn={onPressIn}
-            >
-                <View style={buttonHovered? styles.abutton : buttonPressed? styles.bbutton : styles.cbutton}>
-                    <Text>Text</Text>
-                </View>
-            </TouchableHighlight> */}
             <ScrollView style={styles.scrollView}>
                 <View>
                     <Table borderStyle={{borderWidth: 16, borderColor: '#FFFFFF'}}>
