@@ -17,8 +17,16 @@ import SampleData from '../models/SampleMode.json';
 
 export default Content = () => {
     const [data, setData] = useState([]);
+    const [pageIdx, setPageIdx] = useState(1);
 
     const tableData = [];
+    let maxPageIdx = 0;
+
+    pageIdxCallback = () => {
+        if(pageIdx + 1 <= maxPageIdx){
+            setPageIdx(pageIdx => pageIdx + 1);
+        }
+    }
 
     useEffect(async () => {
         // this is real data
@@ -32,18 +40,50 @@ export default Content = () => {
     }, []);
 
 
-if(data.length != 0){
-    console.log(data.data.length);
-    for(let i = 0; i < 5; i++){
-        const rowData = [];
-        for(let j = 0; j < 3; j++){
-            let idx = j + i * 3
-            rowData.push(<CoinCard coinName={data.data[idx].name} coinSymbol={data.data[idx].symbol}
-            />);
+
+
+    if(!isEmptyObject(data)){
+        maxPageIdx = Math.ceil(data.data.length / 15);
+
+        for(let i = 0; i < 5 * (pageIdx == maxPageIdx ? (pageIdx - 1) : pageIdx); i++){
+            const rowData = [];
+            for(let j = 0; j < 3; j++){
+                let idx = j + i * 3
+                rowData.push(<CoinCard coinName={data.data[idx].name} coinSymbol={data.data[idx].symbol}
+                />);
+            }
+            tableData.push(rowData);
+        }   
+        if(pageIdx == maxPageIdx){ 
+            const remainedCoin = data.data.length - 15 * (pageIdx - 1);
+            const remainedColumn = Math.ceil(remainedCoin / 3);
+            const reaminedRow = remainedCoin - (remainedColumn - 1) * 3;
+
+            for(let k = 0; k < remainedColumn; k++){
+                const rowData = [];
+
+                if(k == remainedColumn - 1){
+                    for(m = 0; m < reaminedRow; m ++){
+                        let idx = m + k * 3 + 15 * (pageIdx - 1);
+                        rowData.push(<CoinCard coinName={data.data[idx].name} coinSymbol={data.data[idx].symbol}
+                        />); 
+                    }
+                    for(m = reaminedRow; m < 3; m ++){
+                        rowData.push(null); 
+                    }
+                }
+                else {
+                    for(let l = 0; l < 3; l++){
+                        let idx = l + k * 3 + 15 * (pageIdx - 1);
+                        rowData.push(<CoinCard coinName={data.data[idx].name} coinSymbol={data.data[idx].symbol}
+                        />);
+                    }
+                }
+                
+                tableData.push(rowData);
+            }  
         }
-        tableData.push(rowData);
     }
-}
 
     return (
         <View style={styles.content}>
@@ -54,11 +94,20 @@ if(data.length != 0){
                     </Table>
                 </View>
             </ScrollView>
-            <MoreButton/>
+            <MoreButton curPageIdx={pageIdx} maxPageIdx={maxPageIdx} parentCallback={this.pageIdxCallback}/>
         </View>
     );
-
 };
+
+const isEmptyObject = (data) => {
+    if(Object.keys(data).length == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 const styles = StyleSheet.create({
     content: {
         height: 560,

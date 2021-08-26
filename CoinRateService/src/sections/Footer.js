@@ -1,32 +1,62 @@
 import React from 'react';
 import {
+    ScrollView,
     StyleSheet,
     View
 } from 'react-native';
+import CoinLabel from '../components/CoinLabel';
   
 export default Footer = () => {
     return (
-        <View style={styles.content}>
+        <View style={styles.footer}>
+            <View style={styles.scorllViewBackGround}>
+                <ScrollView style={styles.scrollView}>
+
+                    <View style={styles.coinLabelBox}>
+
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+                        <CoinLabel symbol={'BTC'}/>
+
+                    </View>
+                </ScrollView>
+            </View>
+
         </View>
     );
 };
 const styles = StyleSheet.create({
-    content: {
-        height: 536,
+    footer: {
+        height: 180,
+        flexDirection: 'column',
+        backgroundColor: '#DDDDDD',
+    },
+    scorllViewBackGround: {
+        height: 120,
+        backgroundColor: '#EEF0FD',
+    },
+    coinLabelBox: {
+        height: 120,
         flexDirection: 'row',
         alignItems: 'center',
-        paddingHorizontal: 24,
-        backgroundColor: '#9E7DDB'
+        justifyContent: 'flex-start',
+        paddingHorizontal: 16,
+        flexWrap: 'wrap',
+        paddingTop: 8,
     },
-    logoSymbol: {
-        width: 22.8,
-        height: 34,
-    },
-    logoUnion: {
-        width: 60.76,
-        height: 21.22,
-    },
-    logoSpace: {
-        width: 12.05,
+    scrollView: {
+        flexDirection: 'column',
     },
 });

@@ -8,36 +8,40 @@ import {
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
-export default MoreButton = () => {
+export default MoreButton = ({curPageIdx, maxPageIdx, parentCallback}) => {
     const [morePressed, setmorePressed] = useState(false);
     const [moreHovered, setmoreHovered] = useState(false);
     
     onPress = () => {
         setmorePressed(true);
         setmoreHovered(false);
-        console.log('pressed');
+        parentCallback(); 
     };
     onPressIn = () => {
         setmoreHovered(true);
-        console.log('hovered');
+    };
+
+    onPressOut = () => {
+        setmoreHovered(false);
     };
 
     return (
         <Pressable
         onPress={onPress}
         onPressIn={onPressIn}
+        onPressOut={onPressOut}
         style={{borderRadius: 4}}
         >
-            <View style={moreHovered ? styles.hoverButton : styles.defaultButton}>
+            <View style={styles.defaultButton}>
             
                 <View style={styles.buttonBox}>
 
-                    <Text style={moreHovered ? styles.hoverTextFont : styles.defaultTextFont}>더보기(1/32)</Text>
+                    <Text style={moreHovered ? styles.hoverTextFont : styles.defaultTextFont}>더보기({curPageIdx}/{maxPageIdx})</Text>
 
                     <View>
-                        <View style={moreHovered ? styles.hoverIcon : styles.defaultIcon}>
+                        <View>
                             <Text>
-                            <Icon name="down" size={15} color={moreHovered ? '#A6AEBA': '#72778E'} />
+                            <Icon name="down" size={15} color={moreHovered ? '#72778E': '#A6AEBA'} />
                             </Text>
                         </View> 
                     </View>
@@ -69,11 +73,6 @@ const styles = StyleSheet.create({
         color: '#515774',
     },
     defaultButton: {
-        alignItems: "center",
-        backgroundColor: "#F6F7F8",
-        borderRadius: 4,
-    },
-    hoverButton: {
         alignItems: "center",
         backgroundColor: "#F6F7F8",
         borderRadius: 4,
