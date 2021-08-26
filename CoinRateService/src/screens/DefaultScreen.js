@@ -1,38 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
     SafeAreaView,
     StyleSheet,
     View
 } from 'react-native';
+import { isEmptyObject } from '../functions/isEmptyObject';
 import Content from '../sections/Content';
 import Footer from '../sections/Footer';
 import Header from '../sections/Header';
 import Title from '../sections/Title';
 
 const DefaultScreen = () => {
-    const [data, setData] = useState([]);
-  
-    function getMovies() {
-        console.log('hello');
-        
+    const [coinSelected, setCoinSelected] = useState(false);
+    const [selectedCoin, setSelectedCoin] = useState([]);
+    const [symbolToRemove, setSymbolToRemove] = useState('');
+
+
+    selectCoinCallback = (selectedCoin) => {
+
+        if(isEmptyObject(selectedCoin)){
+
+            setCoinSelected(false);
+            setSelectedCoin([]);
+        }
+        else{
+            setCoinSelected(true);
+            setSelectedCoin(selectedCoin);
+        }
     }
-  
-   useEffect(() => {
-    getMovies();
-  
-  }, []);
+
+    removeCoinLabelCallback = (removeSymbol) =>{
+        setSymbolToRemove(removeSymbol);
+    }
     return (
-    //   console.log(JSON.stringify(data)),
-    //   console.log(cmcInfo),
     <SafeAreaView>
         <View>
             <Header/>
             <View style={styles.spaceHeaderTitle}/>
             <Title/>
             <View style={styles.spaceTitleContent}/>
-            <Content/>
+            <Content parentCallback={this.selectCoinCallback} removableSymbol={symbolToRemove}/>
             <View style={styles.spaceContentFooter}/>
-            <Footer/>
+            <Footer coinSelected={coinSelected} selectedCoin={selectedCoin} parentCallback={this.removeCoinLabelCallback}/>   
         </View>  
     </SafeAreaView>
     );

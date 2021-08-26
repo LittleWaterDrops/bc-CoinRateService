@@ -15,16 +15,13 @@ export default CoinLabel = ({symbol, parentCallback}) => {
     onPress = () => {
         setLabelPressed(true);
         setLabelHovered(false);
-        console.log('pressed');
-        // parentCallback(); 
+        parentCallback(symbol); 
     };
     onPressIn = () => {
         setLabelHovered(true);
-        console.log('hovered');
     };
     onPressOut = () => {
         setLabelHovered(false);
-        console.log('not hovers');
     };
 
     return (

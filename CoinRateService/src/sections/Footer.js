@@ -6,42 +6,57 @@ import {
 } from 'react-native';
 import CoinLabel from '../components/CoinLabel';
   
-export default Footer = () => {
-    return (
-        <View style={styles.footer}>
-            <View style={styles.scorllViewBackGround}>
-                <ScrollView style={styles.scrollView}>
+export default Footer = ({coinSelected, selectedCoin, parentCallback}) => {
 
-                    <View style={styles.coinLabelBox}>
+    removeCoinLabel = (removeSymbol) =>{
+        parentCallback(removeSymbol);
+    }
 
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
-                        <CoinLabel symbol={'BTC'}/>
+    if(coinSelected == true){
+        let initialArr = selectedCoin;
+        if(typeof(initialArr) == 'string'){
+            initialArr = [initialArr];
+        }
+        console.log('asdfd');
+        console.log(initialArr);
+        console.log(typeof(initialArr));
 
-                    </View>
-                </ScrollView>
+        return (
+            <View style={styles.footer}>
+                <View style={styles.scorllViewBackGround}>
+                    <ScrollView style={styles.scrollView}>
+
+                        <View style={styles.coinLabelBox}>
+
+                            {
+                                initialArr.map((item)=> {
+                                    return (
+                                        <CoinLabel key={item} symbol={item} parentCallback={this.removeCoinLabel}/>
+                                    );
+                                })
+                            }
+
+                        </View>
+                    </ScrollView>
+                </View>
+
             </View>
-
-        </View>
-    );
+        );
+    }
+    else{
+        return null;
+    }
 };
 const styles = StyleSheet.create({
     footer: {
         height: 180,
         flexDirection: 'column',
         backgroundColor: '#DDDDDD',
+    },
+    container: {
+        height: 180,
+        flexDirection: 'column',
+        backgroundColor: '#FFFFFF',
     },
     scorllViewBackGround: {
         height: 120,

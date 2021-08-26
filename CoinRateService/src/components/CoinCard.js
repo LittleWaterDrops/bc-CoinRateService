@@ -8,14 +8,31 @@ import {
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
-export default CoinCard = ({coinName, coinSymbol}) => {
+export default CoinCard = ({coinName, coinSymbol, coinIdx, cardSelected, parentCallback}) => {
     const [buttonPressed, setButtonPressed] = useState(false);
     const [buttonHovered, setButtonHovered] = useState(false);
+
+
+
+    // useEffect(() => {
+    //     if(resetSelect == true){
+    //         setButtonPressed(false);
+    //         console.log('work!');
+    //         resetSelect = false;
+    //         console.log(resetSelect);
+    //     }
+    // }, [resetSelect]);
     
     onPress = () => {
-        buttonPressed ? setButtonPressed(false) : setButtonPressed(true);
+        // buttonPressed ? setButtonPressed(false) : setButtonPressed(true);
+        cardSelected ? parentCallback(coinSymbol, coinIdx, false) : parentCallback(coinSymbol, coinIdx, true);
         setButtonHovered(false);
+
     };
+    // useEffect(() => {
+    //     buttonPressed ? parentCallback(coinSymbol, coinIdx, true) : parentCallback(coinSymbol, coinIdx, false);
+    //   }, [buttonPressed]);
+
     onPressIn = () => {
         setButtonHovered(true);
     };
@@ -30,7 +47,7 @@ export default CoinCard = ({coinName, coinSymbol}) => {
         onPressOut={onPressOut}
         style={{borderRadius: 4}}
         >
-            <View style={buttonHovered ? styles.hoverButton : buttonPressed ? styles.checkedButton : styles.defaultButton}>
+            <View style={buttonHovered ? styles.hoverButton : cardSelected ? styles.checkedButton : styles.defaultButton}>
             
                 <View style={styles.cardBox}>
                     <View/>
@@ -39,7 +56,7 @@ export default CoinCard = ({coinName, coinSymbol}) => {
                     <TextBox name={coinName} symbol={coinSymbol}/>
 
                     <View>
-                        <CheckBox buttonHovered={buttonHovered} buttonPressed={buttonPressed}/>
+                        <CheckBox buttonHovered={buttonHovered} buttonPressed={cardSelected}/>
                         <View style={styles.checkBoxSpace}/>
                         <View style={styles.checkBoxSpace}/>
                     </View>
