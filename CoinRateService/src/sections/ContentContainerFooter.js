@@ -7,12 +7,14 @@ import { isEmptyObject } from '../functions/isEmptyObject';
 import Content from '../sections/Content';
 import Footer from '../sections/Footer';
 import ExtractionContent from './ExtractionContent';
+import ExtractionFooter from './ExtractionFooter';
   
 export default ContentContainerFooter = () => {
     const [coinSelected, setCoinSelected] = useState(false);
     const [selectedCoin, setSelectedCoin] = useState([]);
     const [symbolToRemove, setSymbolToRemove] = useState([]);
     const [stopWatchWork, setStopWatchWork] = useState(false);
+    const [extractedCoin, setExtractedCoin] = useState([]);
 
     selectCoinCallback = (selectedCoin) => {
         if(isEmptyObject(selectedCoin)){
@@ -35,14 +37,20 @@ export default ContentContainerFooter = () => {
 
     stopWatchReset = () => {
         setStopWatchWork(false);
+        setExtractedCoin([]);
     }
+
+    extractedCoinList = (coinList) =>{
+        setExtractedCoin(coinList);
+    }
+
 
     if(stopWatchWork == true){
         return (
             <View>
-            <ExtractionContent selectedCoin ={selectedCoin} stopWatchReset={this.stopWatchReset}/>
+            <ExtractionContent selectedCoin ={selectedCoin} stopWatchReset={this.stopWatchReset} parentCallback={this.extractedCoinList}/>
             <View style={styles.spaceContentFooter}/>
-            {/* <Footer coinSelected={coinSelected} selectedCoin={selectedCoin} parentCallback={this.removeCoinLabelCallback} stopWatchStart={this.stopWatchStart}/>    */}
+            <ExtractionFooter extractedCoinList={extractedCoin}/>   
             </View>
        );
     }

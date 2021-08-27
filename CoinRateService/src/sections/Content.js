@@ -10,6 +10,7 @@ import {
     View
 } from 'react-native';
 import { Rows, Table } from 'react-native-table-component';
+// import Cmcservice from '../api/CmcService';
 import CoinCard from '../components/CoinCard';
 import MoreButton from '../components/MoreButton';
 import { isEmptyObject } from '../functions/isEmptyObject';
@@ -21,6 +22,7 @@ export default Content = ({parentCallback, removableSymbol}) => {
     const [pageIdx, setPageIdx] = useState();
     const [tableData, setTableData] = useState([]);
     const [maxPage, setMaxPage] = useState(0);
+    const [inital, setInitial] = useState(false);
     
     useEffect(()=>{
     if(!isEmptyObject(removableSymbol)){
@@ -82,17 +84,25 @@ export default Content = ({parentCallback, removableSymbol}) => {
 
 
     useEffect(async () => {
-        // this is real data
-        // const cmcData = await CmcService();
 
-        // this is sample data
-        const cmcData = await SampleData;
+        if(isEmptyObject(data) && inital == false){
+            // this is real data
+            // const cmcData = await Cmcservice();
 
-        setData(cmcData);
+            // this is sample data
+            const cmcData = await SampleData;
 
-        let maxPageIdx = Math.ceil(cmcData.data.length / 15);
-        setMaxPage(maxPageIdx);
-        setPageIdx(1);
+            setData(cmcData);
+
+            let maxPageIdx = Math.ceil(cmcData.data.length / 15);
+            setMaxPage(maxPageIdx);
+            setPageIdx(1);
+            setInitial(true);
+        }
+        else{
+            setInitial(false);
+        }
+
     }, [data]);
 
     useEffect(() => {

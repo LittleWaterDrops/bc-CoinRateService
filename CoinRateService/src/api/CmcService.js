@@ -3,7 +3,7 @@ const X_CMC_PRO_API_KEY = '874a5427-138c-4c43-9a5b-b03d97f79b62';
 const X_CMC_PRO_API_KEY2 = '03ad9eba-7b75-4b35-ab25-d2a1c0e5ed02';
 
 export default CmcService = async () => {
-    let cmcData;
+    var cmcData;
 
     getCMCData = async () => {
         try {
