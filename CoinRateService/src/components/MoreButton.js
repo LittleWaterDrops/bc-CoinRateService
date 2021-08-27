@@ -7,20 +7,29 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-
+/** 
+ * This component is more button.
+ * Get current and max page index, and show it. 
+ * button can hover and can press.
+ * If hovered actived, label's style is change.
+ * If button pressed, current page index is increase before max page index.
+ */
 export default MoreButton = ({curPageIdx, maxPageIdx, parentCallback}) => {
-    const [morePressed, setMorePressed] = useState(false);
+    /** moreHovered : Check if more button is hovered. */
     const [moreHovered, setMoreHovered] = useState(false);
-    
+
+    /** This function runs when more button is pressed. Increase current index. */
     onPress = () => {
-        setMorePressed(true);
         setMoreHovered(false);
         parentCallback(); 
     };
+    
+    /** This function check more button is hovered in. */
     onPressIn = () => {
         setMoreHovered(true);
     };
 
+    /** This function check more button is hovered in. */
     onPressOut = () => {
         setMoreHovered(false);
     };
@@ -33,17 +42,12 @@ export default MoreButton = ({curPageIdx, maxPageIdx, parentCallback}) => {
         style={{borderRadius: 4}}
         >
             <View style={styles.defaultButton}>
-            
                 <View style={styles.buttonBox}>
-
                     <Text style={moreHovered ? styles.hoverTextFont : styles.defaultTextFont}>더보기({curPageIdx}/{maxPageIdx})</Text>
-
                     <View>
-                        <View>
-                            <Text>
-                            <Icon name="down" size={15} color={moreHovered ? '#72778E': '#A6AEBA'} />
-                            </Text>
-                        </View> 
+                        <Text>
+                        <Icon name="down" size={15} color={moreHovered ? '#72778E': '#A6AEBA'} />
+                        </Text>
                     </View>
                 </View>
             </View>

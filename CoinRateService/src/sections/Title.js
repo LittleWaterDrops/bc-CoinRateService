@@ -5,6 +5,10 @@ import {
     View
 } from 'react-native';
   
+/**
+ * This section shows title and subtitle of project.
+ * It located under header section.
+ */
 export default Title = () => {
     return (
         <View style={styles.title}>

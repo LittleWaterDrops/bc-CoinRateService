@@ -5,6 +5,9 @@ import {
     View
 } from 'react-native';
   
+/**
+ * This section shows logo with 'haru' on the top of screen.
+ */
 export default Header = () => {
     return (
         <View style={styles.header}>

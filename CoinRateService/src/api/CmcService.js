@@ -1,7 +1,18 @@
-
+/**
+ * API key of cmc.
+ * There is limit of call api a day. So, if more call need, change key 1 to 2 or 2 to 1.
+ * If you need more, see https://coinmarketcap.com/.
+ */
 const X_CMC_PRO_API_KEY = '874a5427-138c-4c43-9a5b-b03d97f79b62';
 const X_CMC_PRO_API_KEY2 = '03ad9eba-7b75-4b35-ab25-d2a1c0e5ed02';
 
+/**
+ * This API gets coins data of coin market. 
+ * header needs API key, Accept-Encoding helps get api fast.
+ * This get limit 100 coins by KRW.
+ * If you want detail, see https://coinmarketcap.com/.
+ * Or if you want sample, see '../model/SampleData.json'.
+ */
 export default CmcService = async () => {
     var cmcData;
 
@@ -16,7 +27,7 @@ export default CmcService = async () => {
                 },
             });
         const json = await response.json();
-        // this is json to string code
+        /** this is json to string code */
         // const cmcInfo = CmcModel.cmcInfoToJson(json);
         // console.log(cmcInfo);
         // console.log(JSON.stringify(json));
@@ -28,7 +39,6 @@ export default CmcService = async () => {
     }
     await getCMCData();
 
-    // console.log(cmcData);
     return cmcData;
 };
 

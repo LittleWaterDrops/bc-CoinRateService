@@ -1,42 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import {
-    ScrollView, StyleSheet,
-
-
-
-
-
-
+    ScrollView,
+    StyleSheet,
     View
 } from 'react-native';
 import { Rows, Table } from 'react-native-table-component';
-// import Cmcservice from '../api/CmcService';
+import Cmcservice from '../api/CmcService';
 import CoinCard from '../components/CoinCard';
 import MoreButton from '../components/MoreButton';
 import { isEmptyObject } from '../functions/isEmptyObject';
-import SampleData from '../models/SampleModel.json';
+// import SampleData from '../models/SampleModel.json';
 
+/**
+ * This section shows coin card on the center of screen.
+ * Default, we can show 100 of coin, but also we can increase coins by CmcService.js.
+ * At first, 15 coins show, but by using more button, we can see maximum 100 coins.
+ * Using more button after clicked card, that data is saved. So we can continue the selecting cards.
+ * Furthermore After select coins, footer been showed coin label and extract start button with we selected.
+ * If we start extract, this section will change to Extraction Content Section.
+ * It located under the title. It is related by 'Footer.js'. These two section is default display before stopwatch able.
+ */
 export default Content = ({parentCallback, removableSymbol}) => {
+    /**
+     * data : Initial data of 100 coins. To see details, please check '../models/SampleModel.json'.
+     * selectedCoin : List that user select by coin cards. One coin has index and symbol.
+     * pageIdx : Current page index of coin card. Initial will be decare by 0, but useEfftect, it changes by 1.
+     * tableData : Data List to be coin card.
+     * maxPage : Max page index of data.
+     * initail : To check that data is initialized. Also, prevent duplicate to call data many times at sec.
+     */
     const [data, setData] = useState([]);
     const [selectedCoin, setSelectedCoin] = useState([]);
-    const [pageIdx, setPageIdx] = useState();
+    const [pageIdx, setPageIdx] = useState(0);
     const [tableData, setTableData] = useState([]);
     const [maxPage, setMaxPage] = useState(0);
     const [inital, setInitial] = useState(false);
     
+    /** This is check to remove coin by coin label, and change selected coin card to default. */
     useEffect(()=>{
-    if(!isEmptyObject(removableSymbol)){
-        selectCoinCallback(removableSymbol[1],removableSymbol[0],false);           
-    }
-},[removableSymbol])
+        if(!isEmptyObject(removableSymbol)){
+            selectCoinCallback(removableSymbol[1],removableSymbol[0],false);           
+        }
+    },[removableSymbol])
 
+    /** This is callback by morebutton. If morebutton is clicked, increase current page index before max page. */
     pageIdxCallback = () => {
         if(pageIdx + 1 <= maxPage){
             setPageIdx(pageIdx => pageIdx + 1);
         }
     }
     
-    foo = (columnNumber, rowNumber, selectedCoinIdx) =>{
+    /** This is function to change card selected. */
+    cardToSelect = (columnNumber, rowNumber, selectedCoinIdx) =>{
         tableData[columnNumber][rowNumber] = <CoinCard 
         coinName={tableData[columnNumber][rowNumber].props.coinName} 
         coinSymbol={tableData[columnNumber][rowNumber].props.coinSymbol}
@@ -45,8 +60,9 @@ export default Content = ({parentCallback, removableSymbol}) => {
         parentCallback={this.selectCoinCallback}
         />;
     }
-    koo = (columnNumber, rowNumber, selectedCoinIdx) =>{
 
+    /** This is function to change card default. */
+    cardToDefault = (columnNumber, rowNumber, selectedCoinIdx) =>{
         tableData[columnNumber][rowNumber] = <CoinCard 
         coinName={tableData[columnNumber][rowNumber].props.coinName} 
         coinSymbol={tableData[columnNumber][rowNumber].props.coinSymbol}
@@ -55,17 +71,19 @@ export default Content = ({parentCallback, removableSymbol}) => {
         parentCallback={this.selectCoinCallback}
         />;
     }
+
+    /** This is callback by coin card. If card is clicked, check it's index of data and change card's state. */
     selectCoinCallback = (selectedCoinSymbol, selectedCoinIdx, buttonPressed) => {
         const columnNumber = Math.floor(selectedCoinIdx/3);
-        const rowNumber = selectedCoinIdx%3;
+        const rowNumber = selectedCoinIdx % 3;
 
         if(buttonPressed == true){
-            foo(columnNumber,rowNumber,selectedCoinIdx);
+            cardToSelect(columnNumber,rowNumber,selectedCoinIdx);
 
             setSelectedCoin(selectedCoin => selectedCoin.concat([[selectedCoinIdx, selectedCoinSymbol]]));
         }
         else{
-            koo(columnNumber,rowNumber,selectedCoinIdx);
+            cardToDefault(columnNumber,rowNumber,selectedCoinIdx);
             
             setSelectedCoin(selectedCoin => selectedCoin.filter(function(selectedCoin) { 
                 return JSON.stringify(selectedCoin) != JSON.stringify([selectedCoinIdx, selectedCoinSymbol]);
@@ -75,22 +93,25 @@ export default Content = ({parentCallback, removableSymbol}) => {
 
     }
 
+    /** This is parentCallback. It gives selected coin list to ContainerContentFooter Section */
     useEffect(() => {
         let copyedArray = [...selectedCoin];
-        
+
         parentCallback(copyedArray);
     }, [selectedCoin]);
 
-
-
+    /** This is initializing data of coins. Check if data is empty and initial is false.
+     *  Set current page index 1, and set max page index by division 15.
+     *  To use sample data, remove comment of sampledata and import of 'SampleData.json'.
+     */
     useEffect(async () => {
 
         if(isEmptyObject(data) && inital == false){
             // this is real data
-            // const cmcData = await Cmcservice();
+            const cmcData = await Cmcservice();
 
             // this is sample data
-            const cmcData = await SampleData;
+            // const cmcData = await SampleData;
 
             setData(cmcData);
 
@@ -102,9 +123,9 @@ export default Content = ({parentCallback, removableSymbol}) => {
         else{
             setInitial(false);
         }
-
     }, [data]);
 
+    /** This is initializing table data of coin card. Check current page and push default card suitably. */
     useEffect(() => {
         const tableCell = [];
 

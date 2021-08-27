@@ -2,19 +2,28 @@ import React from 'react';
 import {
     FlatList,
     Image,
-
     StyleSheet,
     Text,
-
-
-
     View
 } from 'react-native';
 import { isEmptyObject } from '../functions/isEmptyObject';
-
-const header = [['코인'],['가격','24h(%)','7d(%)']];
+/** This is header of extracted coin list */
+const header = ['코인','가격','24h(%)','7d(%)'];
   
+/**
+ * This section is display list of extracted coin data.
+ * When stopwatch passed 5 seconds first, extracted coin data list showed.
+ * List contains header of list, data of list.
+ * Header is consisted of '코인, 가격, 24h, 7d'.
+ * data of list is consisted of 'BTC logo, symbol, price, percent change of 24H, percent change of 7D'.
+ * price is shown by KRW. Include all value of price, perenct change, precision is 2.
+ * If percent change is plus, color is green. If it is minus, color is red. If it is 0, color is black.
+ * If selected coin is so much, user can see all by scroll, not more button.
+ * This section is related with Extraction Content.
+ */
 export default ExtractionFooter = ({extractedCoinList}) => {
+
+    /** This function decare color of percent text by it's value. */
     const percentTextColor = (item) =>{
         return(
             item > 0 ? 
@@ -26,6 +35,7 @@ export default ExtractionFooter = ({extractedCoinList}) => {
         );
     }
 
+    /** This is render item to display list. */
     const renderItem = ({item}) =>(
                 <View style={styles.flatListStyle}>
                     <View style={styles.flatListSymbol}>
@@ -50,26 +60,23 @@ export default ExtractionFooter = ({extractedCoinList}) => {
 
                 <View style={styles.headerStyle}>
                     <View style={styles.headerSymbol}>
-                        <Text style={styles.headerSymbolText}>코인</Text>
+                        <Text style={styles.headerSymbolText}>{header[0]}</Text>
                     </View>
                     <View style={styles.headerPrice}>
-                        <Text style={styles.headerPriceText}>가격</Text>
+                        <Text style={styles.headerPriceText}>{header[1]}</Text>
                     </View>
                     <View style={styles.headerPercent}>
-                    <Text style={styles.headerPriceText}>24h(%)</Text>
+                        <Text style={styles.headerPriceText}>{header[2]}</Text>
                     </View>
                     <View style={styles.headerPercent}>
-                    <Text style={styles.headerPriceText}>7d(%)</Text>
+                        <Text style={styles.headerPriceText}>{header[3]}</Text>
                     </View>
                 </View>
-                
-                {/* <ScrollView style={styles.scrollView}> */}
                     <FlatList
                     data={extractedCoinList}
                     renderItem={renderItem}
                     keyExtractor={item => item[0]}
                     />                    
-                {/* </ScrollView> */}
             </View>
         );
     }
@@ -78,6 +85,7 @@ export default ExtractionFooter = ({extractedCoinList}) => {
     }
 };
 
+/** This is BTC logo to show logo beside symbol. */
 const BTCLogo = () => {
     return (
         <Image 
@@ -171,8 +179,5 @@ const styles = StyleSheet.create({
         fontSize: 14, 
         color: '#CA303C',
         textAlign: 'right',
-    },
-    scrollView: {
-        flexDirection: 'column',
     },
 });

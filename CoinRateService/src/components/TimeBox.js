@@ -1,19 +1,20 @@
 import React from 'react';
 import {
-
-    StyleSheet, Text,
-
-
+    StyleSheet,
+    Text,
     View
 } from 'react-native';
 
-  
+/**
+ * This component is timebox that located on ExtractionContent.
+ * Get visible parameter to show timebox or not.
+ * Get timeData of responed and requet time.
+ * It show request and responed time.
+ */
 export default TimeBox = ({visible, timeData}) => {
     if(visible == true){
         return (
-
             <View style={styles.timeBoxSection}>
-
                 <View style={styles.timeBox}>
                     <View style={styles.timeTextBox}>
                         <Text style={styles.timeText}> Request Time </Text>

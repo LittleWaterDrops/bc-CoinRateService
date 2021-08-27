@@ -2,20 +2,20 @@ import React from 'react';
 import {
     StyleSheet,
     Text,
-
     View
 } from 'react-native';
 
-
+/**
+ * This component is selected coin label.
+ * It displayed at Extraction Content. 
+ * It is like coin label, but not close button.
+ */
 export default SelectedCoinLabel = ({symbol}) => {
 
     return (
-        
         <View style={styles.padding}>
             <View style={styles.defaultLabel}>
-            
                 <View style={styles.labelBox}>
-
                 <Text style={styles.defaultTextFont}>{symbol}</Text>
                 </View>
             </View>

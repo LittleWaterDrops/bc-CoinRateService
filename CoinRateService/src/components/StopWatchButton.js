@@ -2,17 +2,25 @@ import React, { useEffect, useState } from 'react';
 import {
     Pressable, StyleSheet,
     Text,
-
     View
 } from 'react-native';
 
-
+/**
+ * This component is stopwatch button.
+ * Get init state of stopwatch, and show about.
+ * Button is toggled with 'start', 'finish', 'reset' button style.
+ * It changes style by state.
+ */
 export default StopWatchButtion = ({initState, parentCallback}) => {
+    /**
+     * stopWatchHovered : Check stopwatch button is hovered.
+     * stopWatchState : 0 => default, 1 => extraction, 2 => finished.
+     *                  0 is 'start', 1 is 'finish', 2 is 'reset'.
+     */
     const [stopWatchHovered, setStopWatchHovered] = useState(false);
-
-    //stopWatchState 0 : default, 1 : extraction, 2 : finished
     const [stopWatchState, setStopWatchState] = useState(0);
 
+    /** This function initialize the state by parameter initState. */
     useEffect(()=>{
         switch (initState) {
             case 0:
@@ -29,10 +37,12 @@ export default StopWatchButtion = ({initState, parentCallback}) => {
         }    
     },[initState]);
 
+    /** This function callback to parent. It pass stopwatch state. */
     useEffect(()=>{
         parentCallback(stopWatchState); 
     },[stopWatchState]);
 
+    /** This function runs when button pressed. Toggle button state. */
     onPress = () => {
         setStopWatchHovered(false);
         switch (stopWatchState) {
@@ -49,15 +59,18 @@ export default StopWatchButtion = ({initState, parentCallback}) => {
                 break;
         }
     };
+
+    /** This function check stopwatch button is hovered in. */
     onPressIn = () => {
         setStopWatchHovered(true);
     };
 
+    /** This function check stopwatch button is hovered in. */
     onPressOut = () => {
         setStopWatchHovered(false);
     };  
 
-
+    /** This returns text according to state. */
     const stopWatchText = () =>{
         if(stopWatchState == 1){
             return 'Finish';

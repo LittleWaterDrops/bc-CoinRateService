@@ -7,35 +7,28 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-
+/**
+ * This component is coin card.
+ * Props are name, symbol, index of coin and check card selected.
+ * This is pressible, when it press or hover, change card's style and state.
+ */
 export default CoinCard = ({coinName, coinSymbol, coinIdx, cardSelected, parentCallback}) => {
-    const [buttonPressed, setButtonPressed] = useState(false);
+    /** buttonHoverd : Check button is hovered. */
     const [buttonHovered, setButtonHovered] = useState(false);
-
-
-
-    // useEffect(() => {
-    //     if(resetSelect == true){
-    //         setButtonPressed(false);
-    //         console.log('work!');
-    //         resetSelect = false;
-    //         console.log(resetSelect);
-    //     }
-    // }, [resetSelect]);
     
+    /** This function runs when button is pressed. By card selected parameter, change it's style. */
     onPress = () => {
-        // buttonPressed ? setButtonPressed(false) : setButtonPressed(true);
         cardSelected ? parentCallback(coinSymbol, coinIdx, false) : parentCallback(coinSymbol, coinIdx, true);
         setButtonHovered(false);
 
     };
-    // useEffect(() => {
-    //     buttonPressed ? parentCallback(coinSymbol, coinIdx, true) : parentCallback(coinSymbol, coinIdx, false);
-    //   }, [buttonPressed]);
 
+    /** This function check button is hovered in. */
     onPressIn = () => {
         setButtonHovered(true);
     };
+    
+    /** This function check button is hovered out. */
     onPressOut = () => {
         setButtonHovered(false);
     };

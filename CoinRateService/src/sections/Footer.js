@@ -8,10 +8,19 @@ import {
 import CoinLabel from '../components/CoinLabel';
 import StopWatchButton from '../components/StopWatchButton';
   
+/** 
+ * This section shows selected coin label and stopwatch button when selected coin is exist.
+ * It located under the content. It is related by 'Content.js'. These two section is default display before stopwatch able.
+ * Also we can start stopwatch by press start button. It gives stopwatch start parameter to parent.
+ */
 export default Footer = ({coinSelected, selectedCoin, parentCallback, stopWatchStart}) => {
+    
+    /** This function is give parameter symbol to ContainerContentFooter that want to remove. */
     removeCoinLabel = (coinIdx, removeSymbol) =>{
     parentCallback(coinIdx, removeSymbol);  
     }
+
+    /** This check stopwatch start callback. If it start, stopwatch Activate. */
     stopWatchStarted = (state) =>{
         if(state == 1){
             stopWatchStart();
@@ -30,7 +39,6 @@ export default Footer = ({coinSelected, selectedCoin, parentCallback, stopWatchS
 
                             {
                                 initialArr.map((item)=> {
-
                                     return (
                                         <CoinLabel key={item[0]} coinIdx={item[0]} symbol={item[1]} parentCallback={this.removeCoinLabel}/>
                                     );

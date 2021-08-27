@@ -7,19 +7,29 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-
+/** 
+ * This component is coin label. 
+ * Get index and symbol of coin, and display by label.
+ * Label can hovered, close icon can pressed.
+ * If hovered actived, label's style is change.
+ * If close pressed, label is removed and coin card sets to default.
+ */
 export default CoinLabel = ({coinIdx, symbol, parentCallback}) => {
-    const [labelPressed, setLabelPressed] = useState(false);
+    /** labelHoverd : Check if label is hovered. */
     const [labelHovered, setLabelHovered] = useState(false);
     
+    /** This function runs when label closed is pressed. Remove label and set coin card to default. */
     onPress = () => {
-        setLabelPressed(true);
         setLabelHovered(false);
         parentCallback(coinIdx, symbol); 
     };
+
+    /** This function check label is hovered in. */
     onPressIn = () => {
         setLabelHovered(true);
     };
+
+    /** This function check label is hovered out. */
     onPressOut = () => {
         setLabelHovered(false);
     };

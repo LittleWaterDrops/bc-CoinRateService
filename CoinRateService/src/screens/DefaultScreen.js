@@ -1,12 +1,23 @@
 import React from 'react';
 import {
+    LogBox,
     SafeAreaView,
     StyleSheet,
     View
 } from 'react-native';
-import ContentContainerFooter from '../sections/ContentContainerFooter';
+import ContainerContentFooter from '../sections/ContainerContentFooter';
 import Header from '../sections/Header';
 import Title from '../sections/Title';
+
+/**
+ * This warning is about react-native-stopwatch package.
+ * But it doesn't matter about work.
+ * 
+ * This screen is main screen of application.
+ * Header, title, content, and footer is in here.
+ * @author Hangyu Sang
+ */
+LogBox.ignoreLogs(['Warning: componentWillReceiveProps has been renamed, and is not recommended for use. See https://reactjs.org/link/unsafe-component-lifecycles for details.']);
 
 const DefaultScreen = () => {
     return (
@@ -16,7 +27,7 @@ const DefaultScreen = () => {
             <View style={styles.spaceHeaderTitle}/>
             <Title/>
             <View style={styles.spaceTitleContent}/>
-            <ContentContainerFooter/>
+            <ContainerContentFooter/>
         </View>  
     </SafeAreaView>
     );
