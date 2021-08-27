@@ -11,8 +11,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "moment": "2.29.1",
     "react": "17.0.2",
     "react-native": "0.65.1",
+    "react-native-stopwatch-timer": "0.0.21",
     "react-native-table-component": "1.2.1",
     "react-native-vector-icons": "8.1.0"
   },

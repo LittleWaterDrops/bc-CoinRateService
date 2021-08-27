@@ -12,8 +12,10 @@ export default Footer = ({coinSelected, selectedCoin, parentCallback, stopWatchS
     removeCoinLabel = (coinIdx, removeSymbol) =>{
     parentCallback(coinIdx, removeSymbol);  
     }
-    stopWatchStarted = () =>{
-        stopWatchStart();
+    stopWatchStarted = (state) =>{
+        if(state == 1){
+            stopWatchStart();
+        }
     }
 
     if(coinSelected == true){
@@ -45,7 +47,7 @@ export default Footer = ({coinSelected, selectedCoin, parentCallback, stopWatchS
                         00:00:00
                     </Text>
 
-                    <StopWatchButton parentCallback={this.stopWatchStarted}/>
+                    <StopWatchButton initState={0} parentCallback={this.stopWatchStarted}/>
                 </View>
 
             </View>

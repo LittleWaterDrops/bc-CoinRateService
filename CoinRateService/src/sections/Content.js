@@ -28,12 +28,6 @@ export default Content = ({parentCallback, removableSymbol}) => {
     }
 },[removableSymbol])
 
-
-console.log('====================================');
-console.log(selectedCoin);
-console.log(removableSymbol);
-console.log('====================================');
-
     pageIdxCallback = () => {
         if(pageIdx + 1 <= maxPage){
             setPageIdx(pageIdx => pageIdx + 1);

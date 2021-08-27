@@ -6,6 +6,7 @@ import {
 import { isEmptyObject } from '../functions/isEmptyObject';
 import Content from '../sections/Content';
 import Footer from '../sections/Footer';
+import ExtractionContent from './ExtractionContent';
   
 export default ContentContainerFooter = () => {
     const [coinSelected, setCoinSelected] = useState(false);
@@ -32,31 +33,32 @@ export default ContentContainerFooter = () => {
         setStopWatchWork(true);
     }
 
-    
-    return (
-        <View>
-        <Content parentCallback={this.selectCoinCallback} removableSymbol={symbolToRemove}/>
-        <View style={styles.spaceContentFooter}/>
-        <Footer coinSelected={coinSelected} selectedCoin={selectedCoin} parentCallback={this.removeCoinLabelCallback} stopWatchStart={this.stopWatchStart}/>   
-        </View>
-   );
+    stopWatchReset = () => {
+        setStopWatchWork(false);
+    }
+
+    if(stopWatchWork == true){
+        return (
+            <View>
+            <ExtractionContent selectedCoin ={selectedCoin} stopWatchReset={this.stopWatchReset}/>
+            <View style={styles.spaceContentFooter}/>
+            {/* <Footer coinSelected={coinSelected} selectedCoin={selectedCoin} parentCallback={this.removeCoinLabelCallback} stopWatchStart={this.stopWatchStart}/>    */}
+            </View>
+       );
+    }
+    else{
+        return (
+            <View>
+            <Content parentCallback={this.selectCoinCallback} removableSymbol={symbolToRemove}/>
+            <View style={styles.spaceContentFooter}/>
+            <Footer coinSelected={coinSelected} selectedCoin={selectedCoin} parentCallback={this.removeCoinLabelCallback} stopWatchStart={this.stopWatchStart}/>   
+            </View>
+       );
+    }
+
 };
 const styles = StyleSheet.create({
-    header: {
-        height: 80,
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingLeft: 24,
-    },
-    logoSymbol: {
-        width: 22.8,
-        height: 34,
-    },
-    logoUnion: {
-        width: 60.76,
-        height: 21.22,
-    },
-    logoSpace: {
-        width: 12.05,
+    spaceContentFooter: {
+        height: 30,
     },
 });
