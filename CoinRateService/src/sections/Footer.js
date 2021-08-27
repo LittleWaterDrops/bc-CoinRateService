@@ -6,8 +6,9 @@ import {
     View
 } from 'react-native';
 import CoinLabel from '../components/CoinLabel';
+import StopWatchButton from '../components/StopWatchButton';
   
-export default Footer = ({coinSelected, selectedCoin, parentCallback}) => {
+export default Footer = ({coinSelected, selectedCoin, parentCallback, stopWatchStart}) => {
     removeCoinLabel = (coinIdx, removeSymbol) =>{
     parentCallback(coinIdx, removeSymbol);
 }
@@ -41,11 +42,7 @@ export default Footer = ({coinSelected, selectedCoin, parentCallback}) => {
                         00:00:00
                     </Text>
 
-                    <View style={styles.stopWatchBox}>
-                        <Text style={styles.stopWatchBoxText}>
-                            Start
-                        </Text>
-                    </View>
+                    <StopWatchButton/>
                 </View>
 
             </View>
@@ -80,21 +77,21 @@ const styles = StyleSheet.create({
         fontSize: 28,
         color: '#171F46',
     },
-    stopWatchBox: {
-        width: 106,
-        height: 56,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#5A41F5',
-        borderRadius: 4,
-        color:'#FFFFFF',
-    },
-    stopWatchBoxText: {
-        fontFamily: 'Inter-Regular',
-        fontSize: 18,
-        color: '#FFFFFF',
-    },
+    // stopWatchBox: {
+    //     width: 106,
+    //     height: 56,
+    //     flexDirection: 'row',
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //     backgroundColor: '#5A41F5',
+    //     borderRadius: 4,
+    //     color:'#FFFFFF',
+    // },
+    // stopWatchBoxText: {
+    //     fontFamily: 'Inter-Regular',
+    //     fontSize: 18,
+    //     color: '#FFFFFF',
+    // },
     coinLabelBox: {
         height: 120,
         flexDirection: 'row',

@@ -9,20 +9,20 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 
 export default MoreButton = ({curPageIdx, maxPageIdx, parentCallback}) => {
-    const [morePressed, setmorePressed] = useState(false);
-    const [moreHovered, setmoreHovered] = useState(false);
+    const [morePressed, setMorePressed] = useState(false);
+    const [moreHovered, setMoreHovered] = useState(false);
     
     onPress = () => {
-        setmorePressed(true);
-        setmoreHovered(false);
+        setMorePressed(true);
+        setMoreHovered(false);
         parentCallback(); 
     };
     onPressIn = () => {
-        setmoreHovered(true);
+        setMoreHovered(true);
     };
 
     onPressOut = () => {
-        setmoreHovered(false);
+        setMoreHovered(false);
     };
 
     return (
