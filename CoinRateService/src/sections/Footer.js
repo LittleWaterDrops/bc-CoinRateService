@@ -10,8 +10,11 @@ import StopWatchButton from '../components/StopWatchButton';
   
 export default Footer = ({coinSelected, selectedCoin, parentCallback, stopWatchStart}) => {
     removeCoinLabel = (coinIdx, removeSymbol) =>{
-    parentCallback(coinIdx, removeSymbol);
-}
+    parentCallback(coinIdx, removeSymbol);  
+    }
+    stopWatchStarted = () =>{
+        stopWatchStart();
+    }
 
     if(coinSelected == true){
         let initialArr = selectedCoin;
@@ -42,7 +45,7 @@ export default Footer = ({coinSelected, selectedCoin, parentCallback, stopWatchS
                         00:00:00
                     </Text>
 
-                    <StopWatchButton/>
+                    <StopWatchButton parentCallback={this.stopWatchStarted}/>
                 </View>
 
             </View>

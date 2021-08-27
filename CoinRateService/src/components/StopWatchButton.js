@@ -15,17 +15,13 @@ export default StopWatchButtion = ({parentCallback}) => {
         setStopWatchPressed(true);
         setStopWatchHovered(false);
         parentCallback(); 
-
-        console.log('pressed');
     };
     onPressIn = () => {
         setStopWatchHovered(true);
-        console.log('hoverd in');
     };
 
     onPressOut = () => {
         setStopWatchHovered(false);
-        console.log('hovered out');
     };
 
     return (
