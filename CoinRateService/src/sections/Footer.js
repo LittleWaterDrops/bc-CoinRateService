@@ -82,21 +82,6 @@ const styles = StyleSheet.create({
         fontSize: 28,
         color: '#171F46',
     },
-    // stopWatchBox: {
-    //     width: 106,
-    //     height: 56,
-    //     flexDirection: 'row',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    //     backgroundColor: '#5A41F5',
-    //     borderRadius: 4,
-    //     color:'#FFFFFF',
-    // },
-    // stopWatchBoxText: {
-    //     fontFamily: 'Inter-Regular',
-    //     fontSize: 18,
-    //     color: '#FFFFFF',
-    // },
     coinLabelBox: {
         height: 120,
         flexDirection: 'row',

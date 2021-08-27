@@ -14,7 +14,7 @@ import { Rows, Table } from 'react-native-table-component';
 import CoinCard from '../components/CoinCard';
 import MoreButton from '../components/MoreButton';
 import { isEmptyObject } from '../functions/isEmptyObject';
-import SampleData from '../models/SampleMode.json';
+import SampleData from '../models/SampleModel.json';
 
 export default Content = ({parentCallback, removableSymbol}) => {
     const [data, setData] = useState([]);

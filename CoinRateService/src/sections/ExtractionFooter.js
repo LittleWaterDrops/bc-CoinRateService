@@ -2,6 +2,7 @@ import React from 'react';
 import {
     FlatList,
     Image,
+
     StyleSheet,
     Text,
 
@@ -32,13 +33,13 @@ export default ExtractionFooter = ({extractedCoinList}) => {
                         <Text style={styles.flatListSymbolText}>  {item[1]}</Text>
                     </View>
                     <View style={styles.flatListPrice}>
-                        <Text style={styles.flatListPriceText}>₩{item[2]}</Text>
+                        <Text style={styles.flatListPriceText}>₩{item[2].toLocaleString(undefined,{minimumFractionDigits: 2, maximumFractionDigits: 2})}</Text>
                     </View>
                     <View style={styles.flatListPercent}>
-                    <Text style={percentTextColor(item[3])}>{item[3]}%</Text>
+                    <Text style={percentTextColor(item[3])}>{item[3].toFixed(2)}%</Text>
                     </View>
                     <View style={styles.flatListPercent}>
-                    <Text style={percentTextColor(item[4])}>{item[4]}%</Text>
+                    <Text style={percentTextColor(item[4])}>{item[4].toFixed(2)}%</Text>
                     </View>
                 </View>
     );
@@ -62,13 +63,13 @@ export default ExtractionFooter = ({extractedCoinList}) => {
                     </View>
                 </View>
                 
-                <View>
+                {/* <ScrollView style={styles.scrollView}> */}
                     <FlatList
                     data={extractedCoinList}
                     renderItem={renderItem}
                     keyExtractor={item => item[0]}
                     />                    
-                </View>
+                {/* </ScrollView> */}
             </View>
         );
     }
@@ -92,7 +93,6 @@ const styles = StyleSheet.create({
     extractionFooter: {
         height: 490,
         paddingHorizontal: 24,
-        // alignItems:'center',
     },
     headerStyle: {
         height: 36, 

@@ -11,7 +11,7 @@ import { Stopwatch } from 'react-native-stopwatch-timer';
 import SelectedCoinLabel from '../components/SelectedCoinLabel';
 import StopWatchButton from '../components/StopWatchButton';
 import TimeBox from '../components/TimeBox';
-import SampleData from '../models/SampleMode.json';
+import SampleData from '../models/SampleModel.json';
   
 export default ExtractionContent = ({selectedCoin, stopWatchReset, parentCallback}) => {
     const [stopWatchStart, setStopWatchStart] = useState(false);
@@ -51,7 +51,7 @@ export default ExtractionContent = ({selectedCoin, stopWatchReset, parentCallbac
                 setTimeBoxVisible(true);
                 getTimeData();
                 extraction();
-            }, 2000));
+            }, 5000));
         }
         else{
             clearInterval(timer);
@@ -62,6 +62,7 @@ export default ExtractionContent = ({selectedCoin, stopWatchReset, parentCallbac
         setRequestTime(moment(moment().valueOf() - 5000).format('YYYY.MM.DD HH:mm:ss.SSS'));   
         setRespondTime(moment().format('YYYY.MM.DD HH:mm:ss.SSS'));
     }
+
 
     // 심볼 가격 24h 7d by 5sec -> symbol price percentchange24h percentchange 7d 
     extraction = async () => {
