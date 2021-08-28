@@ -118,7 +118,7 @@ If you want to do like this, follow up under this.
 ![screenshot](/screenshots/read_me_1.png) *Default Screen to select coins.*
 <br>
 
-1. Select more than one coin less than 100 coins in default screen.  
+1. ### Select more than one coin less than 100 coins in default screen.  
     Those will extract data of symbol, price of KRW, percent change of 24H & 7D. 
     <br><br>
     You can see more coins with pressing more button. Be care that list is from CMC API at that time.
@@ -127,7 +127,7 @@ If you want to do like this, follow up under this.
 ![screenshot](/screenshots/read_me_2.png) *Screen that coin selected.*
 <br>
 
-2. Start extraction.  
+2. ### Start extraction.  
     If you select coins, label of coins and 'start' button will be shown.
     <br><br>
     If you want to remove coin, repress coin card or press coin label's close button.
@@ -140,7 +140,7 @@ If you want to do like this, follow up under this.
 ![screenshot](/screenshots/read_me_3.png) *Extraction Screen with selected coin. Run time is less than 5 seconds.*
 <br>
 
-3. Wait less than 5 seconds to extract data.  
+3. ### Wait less than 5 seconds to extract data.  
     After Extraction start, it will emit data after 5 seconds.
     <br><br>
     So, if you want to see data, please wait more than 5 seconds. If not, skip for next step.
@@ -149,7 +149,7 @@ If you want to do like this, follow up under this.
 ![screenshot](/screenshots/read_me_4.png) *Extraction Screen with selected coin. Run time is more than 5 seconds.*
 <br>
 
-4. See data that extracted.  
+4. ### See data that extracted.  
     After 5 seconds passed, screen will display request & respond time of extract data and extracted data you want. 
     <br><br>
     These will refresh every 5 seconds, you can see refreshed data every update.
@@ -163,7 +163,7 @@ If you want to do like this, follow up under this.
 ![screenshot](/screenshots/read_me_5.png) *Extraction Screen after finish extraction. Time and data is updated.*
 <br>
 
-5. Finish extraction.  
+5. ### Finish extraction.  
     After you see data all, please press 'reset' button.
     <br><br>
     If 'reset'button pressed, screen will go to default screen. We can repeat all step 1 ~ 4.
