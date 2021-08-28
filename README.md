@@ -20,7 +20,6 @@
 <br>
 
 ## Description
-<br>
 
 ### Purpose of Application
 
@@ -70,6 +69,7 @@ You can also select and get maximum 100 data of coins at once.
 - Default screen when application start : '../src/screeens/DefaultScreen.js'
 
 please check and sync if you have some issue of application works.
+<br><br>
 
 ## How to Install
 
@@ -158,7 +158,6 @@ If you want to do like this, follow up under this.
     <br><br>
 
 ## Issues
-<br>
 
 ### Challenges and Issues
 - Challenges
@@ -179,9 +178,10 @@ If you want to do like this, follow up under this.
 - Designate coin number as given by user will give some comfort.
 - Get logo of coins will develop intuition.
 - Stop and resume function of stopwatch will prevent that user pressed accidentally.
+<br><br>
 
 ### Credits
-<br>
+
 Thanks to Haru, BlockCrafters. 
 <br><br>
 Project and Layout designed by Haru & BlockCrafters.
