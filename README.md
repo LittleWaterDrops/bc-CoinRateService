@@ -117,7 +117,7 @@ If you want to do like this, follow up under this.
 
 ![screenshot](/screenshots/read_me_1.png)
 
-<figcaption style="text-align:center; font-size:15px; color:#808080">Default Screen to select coins.</figcaption>
+{{<caption>}}Default Screen to select coins.{{<caption>}}
 
 1. Select more than one coin less than 100 coins in default screen.  
     Those will extract data of symbol, price of KRW, percent change of 24H & 7D. 
