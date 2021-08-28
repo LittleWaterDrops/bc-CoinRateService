@@ -15,7 +15,8 @@
   - [Issues](#issues)
     - [Challenges and Issues](#challenges-and-issues)
     - [Hope Features to Implement](#hope-features-to-implement)
-    - [Credits](#credits)
+  
+  - [Credits](#credits)
 
 <br>
 
@@ -113,14 +114,23 @@ So first, you shoud select coins which you want to see, then extract data.
 <br><br>
 If you want to do like this, follow up under this.
 <br><br>
-<<image 1>>
+
+![screenshot](/screenshots/read_me_1.png)
+
+<figcaption style="text-align:center; font-size:15px; color:#808080">
+Default Screen to select coins.</figcaption>
+
 1. Select more than one coin less than 100 coins in default screen.  
     Those will extract data of symbol, price of KRW, percent change of 24H & 7D. 
     <br><br>
     You can see more coins with pressing more button. Be care that list is from CMC API at that time.
     <br><br>
 
-<<image 2>>
+![screenshot](/screenshots/read_me_2.png)
+
+<figcaption style="text-align:center; font-size:15px; color:#808080">
+Screen that coin selected.</figcaption>
+
 2. Start extraction.  
     If you select coins, label of coins and 'start' button will be shown.
     <br><br>
@@ -131,12 +141,21 @@ If you want to do like this, follow up under this.
     After you select done, press 'start' button to run extraction. Screen will navigate to extraction screen. 
     <br><br>
 
-<<image 3>>
+![screenshot](/screenshots/read_me_3.png)
+
+<figcaption style="text-align:center; font-size:15px; color:#808080">
+Extraction Screen with selected coin. Run time is less than 5 seconds.</figcaption>
+
 3. Wait less than 5 seconds to extract data.  
     After Extraction start, it will emit data after 5 seconds.
     <br><br>
     So, if you want to see data, please wait more than 5 seconds. If not, skip for next step.
     <br><br>
+
+![screenshot](/screenshots/read_me_4.png)
+
+<figcaption style="text-align:center; font-size:15px; color:#808080">
+Extraction Screen with selected coin. Run time is more than 5 seconds.</figcaption>
 
 4. See data that extracted.  
     After 5 seconds passed, screen will display request & respond time of extract data and extracted data you want. 
@@ -148,6 +167,11 @@ If you want to do like this, follow up under this.
     To finish this work, please press the button 'finish'.
     <br><br>
     After press 'finish' button, all work stop and button will toggle to 'reset' button.
+
+![screenshot](/screenshots/read_me_5.png)
+
+<figcaption style="text-align:center; font-size:15px; color:#808080">
+Extraction Screen after finish extraction. Time and data is updated.</figcaption>
 
 5. Finish extraction.  
     After you see data all, please press 'reset' button.
@@ -180,7 +204,7 @@ If you want to do like this, follow up under this.
 - Stop and resume function of stopwatch will prevent that user pressed accidentally.
 <br><br>
 
-### Credits
+## Credits
 
 Thanks to Haru, BlockCrafters. 
 <br><br>
