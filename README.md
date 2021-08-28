@@ -117,8 +117,7 @@ If you want to do like this, follow up under this.
 
 ![screenshot](/screenshots/read_me_1.png)
 
-<figcaption style="text-align:center; font-size:15px; color:#808080">
-Default Screen to select coins.</figcaption>
+<figcaption style="text-align:center; font-size:15px; color:#808080">Default Screen to select coins.</figcaption>
 
 1. Select more than one coin less than 100 coins in default screen.  
     Those will extract data of symbol, price of KRW, percent change of 24H & 7D. 
@@ -128,8 +127,7 @@ Default Screen to select coins.</figcaption>
 
 ![screenshot](/screenshots/read_me_2.png)
 
-<figcaption style="text-align:center; font-size:15px; color:#808080">
-Screen that coin selected.</figcaption>
+<figcaption style="text-align:center; font-size:15px; color:#808080">Screen that coin selected.</figcaption>
 
 2. Start extraction.  
     If you select coins, label of coins and 'start' button will be shown.
@@ -143,8 +141,7 @@ Screen that coin selected.</figcaption>
 
 ![screenshot](/screenshots/read_me_3.png)
 
-<figcaption style="text-align:center; font-size:15px; color:#808080">
-Extraction Screen with selected coin. Run time is less than 5 seconds.</figcaption>
+<figcaption style="text-align:center; font-size:15px; color:#808080">Extraction Screen with selected coin. Run time is less than 5 seconds.</figcaption>
 
 3. Wait less than 5 seconds to extract data.  
     After Extraction start, it will emit data after 5 seconds.
@@ -154,8 +151,7 @@ Extraction Screen with selected coin. Run time is less than 5 seconds.</figcapti
 
 ![screenshot](/screenshots/read_me_4.png)
 
-<figcaption style="text-align:center; font-size:15px; color:#808080">
-Extraction Screen with selected coin. Run time is more than 5 seconds.</figcaption>
+<figcaption style="text-align:center; font-size:15px; color:#808080">Extraction Screen with selected coin. Run time is more than 5 seconds.</figcaption>
 
 4. See data that extracted.  
     After 5 seconds passed, screen will display request & respond time of extract data and extracted data you want. 
@@ -170,8 +166,7 @@ Extraction Screen with selected coin. Run time is more than 5 seconds.</figcapti
 
 ![screenshot](/screenshots/read_me_5.png)
 
-<figcaption style="text-align:center; font-size:15px; color:#808080">
-Extraction Screen after finish extraction. Time and data is updated.</figcaption>
+<figcaption style="text-align:center; font-size:15px; color:#808080">Extraction Screen after finish extraction. Time and data is updated.</figcaption>
 
 5. Finish extraction.  
     After you see data all, please press 'reset' button.
