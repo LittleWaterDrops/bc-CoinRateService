@@ -10,6 +10,7 @@ import StopWatchButton from '../components/StopWatchButton';
   
 /** 
  * This section shows selected coin label and stopwatch button when selected coin is exist.
+ * Here I used scroll view, so if label is too much, we can scroll those to see.
  * It located under the content. It is related by 'Content.js'. These two section is default display before stopwatch able.
  * Also we can start stopwatch by press start button. It gives stopwatch start parameter to parent.
  */
