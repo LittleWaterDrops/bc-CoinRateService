@@ -80,26 +80,26 @@ So, you need to check envirment of your mac.
 <br><br>
 If you can run React-native in your mac, please see after 2 step, or not, see after 1 step.
 
-1. React-Native install  
+1. ### React-Native install  
     You should install above technical information - system of project module.
     <br><br>
     Check this link to get help. https://dev-yakuza.posstree.com/ko/react-native/install-on-mac/
     <br><br>
 
-2. Project file download  
+2. ### Project file download  
     You should download this project file in your mac. 
     <br><br>
     Please download this porject file with git clone or fork or download zip of them.
     <br><br>
 
-3. Install packages  
+3. ### Install packages  
     Now, you should download project's package.
     <br><br>
     Go to project file with terminal of mac with command 'cd'. (ex. cd ~/CoinRateService)
     <br><br>
     Then use command 'npm install'.
     <br><br>
-4. Run project  
+4. ### Run project  
     This is Last step. If you have mini 4 simulator, run command 'npm run mini'.
     <br><br>
     If you don't have, please install mini 4 simulator. Please check this link to get help.  
@@ -174,14 +174,14 @@ If you want to do like this, follow up under this.
 ## Issues
 
 ### Challenges and Issues
-- Challenges
+- ### Challenges
   - First, it was hard to handle the data of selected coin between coin card and coin label.  
     All data was easy to handle with callback, but change style of card with remove label is pretty hard to think method. Finally, I solved them with handle the state of card style state at parent component. Additionally, to maintain those state, I use append method to display coin card.
 
   - Second, getting model of API was pretty hard.  
     This API was i've never seen. Getting method is same as other, but there is a limitaion to get data per second or per day so few. I solved them with two method. First is get two account of CMC, so get more data. Second is scrap those data and make sample json model. With sample model, I can test easy and inifitly.
 
-- Issues (This is some issue that different with design.)  
+- ### Issues (This is some issue that different with design.)  
   - I changed coin cards list pagination to infinity scroll. 
   - I removed more button of data list in extraction screen. It was replaced to infinity scroll.
 
